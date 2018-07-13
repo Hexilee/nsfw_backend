@@ -1,5 +1,6 @@
 from flask import Flask, request
 from classify_nsfw import test_score
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
@@ -15,6 +16,7 @@ def hello_world():
 
 
 if __name__ == '__main__':
+    CORS(app, supports_credentials=True)
     app.run(
         host='0.0.0.0',
         port=8080,
